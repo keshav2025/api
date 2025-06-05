@@ -4,10 +4,10 @@ from flask_cors import CORS
 from datetime import datetime
 import os
 
-app = Flask(__name__)
 CORS(app, supports_credentials=True, origins=[
     "http://localhost:5174",
-    "http://127.0.0.1:5174"
+    "http://127.0.0.1:5174",
+    "https://mxcards.in"
 ])
 
 # Configure database
