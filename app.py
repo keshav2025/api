@@ -8,18 +8,18 @@ app = Flask(__name__)
 
 CORS(app, supports_credentials=True, origins=[
     "http://localhost:5174",
+    "http://127.0.0.1:5174"
     "http://127.0.0.1:5174",
     "https://mxcards.in"
-]) # this allows CORS for the specified origins
-# Set the secret key for session management
+])
 
 
-# Configure database
+
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///user_data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-# User Model (no change needed)
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
@@ -53,7 +53,7 @@ with app.app_context():
 @app.route('/api/submit', methods=['POST'])
 def submit_form():
     print("Request received at /api/submit")
-    # Existing code
+    
     
 
     if request.method == "OPTIONS":
@@ -96,4 +96,10 @@ def get_user(user_id):
         return jsonify({'error': str(e)}), 404
 
 if __name__ == '__main__':
+    
     app.run(debug=True)
+
+
+
+
+
