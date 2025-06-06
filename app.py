@@ -10,7 +10,9 @@ CORS(app, supports_credentials=True, origins=[
     "http://localhost:5174",
     "http://127.0.0.1:5174",
     "https://mxcards.in"
-])
+]) # this allows CORS for the specified origins
+# Set the secret key for session management
+
 
 # Configure database
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///user_data.db')
